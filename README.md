@@ -1,194 +1,126 @@
-# Customer Segmentation using K-Means Clustering
-![Python](https://img.shields.io/badge/Python-3.10+-blue)
-![Scikit-learn](https://img.shields.io/badge/scikit--learn-1.x-orange)
-![Pandas](https://img.shields.io/badge/Pandas-2.x-blue)
+# 🛍️ Customer Segmentation using K-Means Clustering
+
+![Python](https://img.shields.io/badge/Python-3.10+-blue?logo=python&logoColor=white)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-1.x-orange?logo=scikitlearn&logoColor=white)
+![Pandas](https://img.shields.io/badge/Pandas-2.x-150458?logo=pandas&logoColor=white)
 ![Status](https://img.shields.io/badge/Status-Complete-brightgreen)
 
-A machine learning project that segments mall customers into meaningful groups using the **K-Means Clustering** algorithm. The project applies data preprocessing, feature scaling, cluster analysis, visualization, and marketing recommendations to better understand customer behavior.
+---
+
+## 📌 Project Overview
+
+This project applies **K-Means Clustering**, an unsupervised machine learning algorithm, to segment mall customers into meaningful groups based on their purchasing behavior. By analyzing **Age**, **Annual Income**, and **Spending Score**, the project identifies customer segments that can support targeted marketing strategies and business decision-making.
+
+The optimal number of clusters was determined using both the **Elbow Method** and **Silhouette Score**. Each cluster was profiled and interpreted to provide actionable marketing recommendations.
 
 ---
 
-## Project Overview
+## 🎯 Objectives
 
-Customer segmentation is a technique used to group customers with similar characteristics and purchasing behaviors. By identifying these groups, businesses can create targeted marketing strategies, improve customer satisfaction, and optimize business decisions.
-
-This project uses the **Mall Customers Dataset** to perform unsupervised learning using **K-Means Clustering**.
-
----
-
-## Dataset
-
-**Dataset:** Mall Customers Dataset
-
-### Features
-
-- CustomerID
-- Gender
-- Age
-- Annual Income (k$)
-- Spending Score (1-100)
-
----
-
-## Objectives
-
-- Explore customer data
-- Clean and preprocess the dataset
-- Perform feature scaling
+- Perform exploratory data analysis (EDA)
+- Clean and preprocess customer data
+- Encode categorical features
+- Scale numerical features
 - Determine the optimal number of clusters
 - Apply K-Means clustering
 - Visualize customer segments
-- Profile each customer segment
+- Profile each customer cluster
 - Generate marketing recommendations
-- Save the trained model and scaler
+- Save the trained model and scaler for future predictions
 
 ---
 
-## Machine Learning Workflow
+## 📂 Dataset
 
-1. Import Libraries
-2. Load Dataset
-3. Exploratory Data Analysis (EDA)
-4. Data Cleaning
-5. Label Encoding
-6. Feature Selection
-7. Feature Scaling
-8. Elbow Method
-9. Silhouette Score
-10. Train K-Means Model
-11. Cluster Profiling
-12. Data Visualization
-13. Marketing Recommendations
-14. Save Model & Outputs
+| Property | Details |
+|----------|---------|
+| **Dataset** | Mall Customers Dataset |
+| **Records** | 200 Customers |
+| **Features** | 5 |
+| **Missing Values** | None |
 
----
+### Dataset Features
 
-## Key Techniques
-
-- K-Means Clustering
-- Feature Scaling (StandardScaler)
-- Label Encoding
-- Elbow Method
-- Silhouette Score
-- Cluster Profiling
-- Data Visualization
-- Model Persistence (Joblib)
-
----
-
-## Technologies Used
-
-- Python 3.10+
-- Pandas
-- NumPy
-- Matplotlib
-- Seaborn
-- Scikit-learn
-- Joblib
-- Jupyter Notebook
-
----
-
-## Visualizations
-
-The project includes several visualizations:
-
-- Customer Age Distribution
-- Annual Income Distribution
-- Spending Score Distribution
-- Gender Distribution
-- Elbow Method
-- Silhouette Score
-- Customer Segmentation Scatter Plot
-- Boxplots for Feature Distribution
-- Customer Count by Segment
-
----
-
-## Customer Segments
-
-The K-Means model identifies six customer groups:
-
-| Segment | Description |
+| Feature | Description |
 |----------|-------------|
-| Older Average Spenders | Older customers with moderate income and spending |
-| Young Average Spenders | Young customers with average purchasing behavior |
-| High Income Low Spenders | High-income customers with low spending habits |
-| High Income High Spenders | Premium/VIP customers with high purchasing power |
-| Young High Spenders | Young customers with high spending despite lower income |
-| Low Income Low Spenders | Budget-conscious customers with low spending |
+| CustomerID | Unique customer identifier (removed before training) |
+| Gender | Customer gender (label encoded during preprocessing) |
+| Age | Customer age |
+| Annual Income (k$) | Annual income in thousand dollars |
+| Spending Score (1-100) | Spending behavior score assigned by the mall |
 
 ---
 
-## Marketing Recommendations
+## ⚙️ Technologies Used
 
-### High Income High Spenders
+| Technology | Purpose |
+|------------|---------|
+| Python | Programming Language |
+| Pandas | Data manipulation |
+| NumPy | Numerical computations |
+| Matplotlib | Data visualization |
+| Seaborn | Statistical visualization |
+| Scikit-learn | Machine Learning |
+| Joblib | Model persistence |
+
+---
+
+## 📊 Cluster Summary
+
+| Cluster | Segment | Customer Count | Average Age | Average Income | Average Spending |
+|---------|----------------------------|---------------:|------------:|---------------:|-----------------:|
+| 0 | Older Average Spenders | 45 | 56.33 | 54.27 | 49.07 |
+| 1 | Young Average Spenders | 39 | 26.79 | 57.10 | 48.13 |
+| 2 | High Income Low Spenders | 33 | 41.94 | 88.94 | 16.97 |
+| 3 | High Income High Spenders | 39 | 32.69 | 86.54 | 82.13 |
+| 4 | Young High Spenders | 23 | 25.00 | 25.26 | 77.61 |
+| 5 | Low Income Low Spenders | 21 | 45.52 | 26.29 | 19.38 |
+
+---
+
+## 💡 Marketing Recommendations
+
+### 🟢 High Income High Spenders
 - VIP memberships
-- Premium products
-- Exclusive promotions
+- Premium product recommendations
+- Exclusive rewards and loyalty programs
 
-### High Income Low Spenders
-- Personalized offers
-- Loyalty rewards
+### 🔵 High Income Low Spenders
+- Personalized promotions
 - Product bundles
+- Loyalty incentives to increase purchases
 
-### Young High Spenders
-- Trend-focused campaigns
-- Social media advertising
+### 🟠 Young High Spenders
+- Trend-focused products
 - Student discounts
+- Social media marketing campaigns
 
-### Young Average Spenders
+### 🟣 Young Average Spenders
 - Personalized recommendations
 - Seasonal promotions
-- Loyalty programs
+- Customer engagement campaigns
 
-### Older Average Spenders
+### 🟡 Older Average Spenders
 - Repeat purchase incentives
 - Personalized services
 - Family-oriented promotions
 
-### Low Income Low Spenders
+### 🔴 Low Income Low Spenders
 - Budget-friendly products
-- Coupons
-- Discount campaigns
+- Discount offers
+- Coupon campaigns
 
 ---
 
-## Project Outputs
+## 📁 Project Structure
 
-The project generates the following files:
-
-| File | Description |
-|------|-------------|
-| Mall_Customers_Clustered.csv | Dataset with assigned customer segments |
-| KMeans_Model.pkl | Trained K-Means model |
-| StandardScaler.pkl | Saved StandardScaler |
-| Analysis_Model.ipynb | Complete analysis notebook |
-
----
-
-## Predicting New Customers
-
-The saved model can classify new customers into one of the identified customer segments without retraining.
-
-Example workflow:
-
-1. Load StandardScaler
-2. Scale new customer data
-3. Load trained K-Means model
-4. Predict customer cluster
-5. Assign customer segment
-
----
-
-## Repository Structure
-
-```
+```text
 Customer-Segmentation-KMeans/
 │
 ├── Analysis_Model.ipynb
 ├── Mall_Customers.csv
 ├── Mall_Customers_Clustered.csv
+├── customer_segmentation.csv
 ├── KMeans_Model.pkl
 ├── StandardScaler.pkl
 ├── README.md
@@ -196,6 +128,7 @@ Customer-Segmentation-KMeans/
 
 ---
 
-## Conclusion
 
-This project successfully applies **K-Means Clustering** to segment customers based on age, annual income, and spending score. The identified customer groups provide actionable marketing insights that can help businesses improve customer engagement, personalize promotions, and support data-driven decision-making.
+## 👤 Author
+
+**Amalki Fernando**
