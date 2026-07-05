@@ -1,4 +1,8 @@
 # Customer Segmentation using K-Means Clustering
+![Python](https://img.shields.io/badge/Python-3.10+-blue)
+![Scikit-learn](https://img.shields.io/badge/scikit--learn-1.x-orange)
+![Pandas](https://img.shields.io/badge/Pandas-2.x-blue)
+![Status](https://img.shields.io/badge/Status-Complete-brightgreen)
 
 A machine learning project that segments mall customers into meaningful groups using the **K-Means Clustering** algorithm. The project applies data preprocessing, feature scaling, cluster analysis, visualization, and marketing recommendations to better understand customer behavior.
 
