@@ -1,45 +1,20 @@
-# 🛍️ Customer Segmentation using K-Means Clustering
+# 🤖 Customer Segmentation using K-Means Clustering
 
 ![Python](https://img.shields.io/badge/Python-3.10+-blue?logo=python&logoColor=white)
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-1.x-orange?logo=scikitlearn&logoColor=white)
 ![Pandas](https://img.shields.io/badge/Pandas-2.x-150458?logo=pandas&logoColor=white)
 ![Status](https://img.shields.io/badge/Status-Complete-brightgreen)
+---
 
-A Machine Learning project that applies **K-Means Clustering** to segment mall customers into meaningful groups based on their purchasing behavior. The project combines **data preprocessing**, **feature scaling**, **cluster evaluation**, **visualization**, and **customer profiling** to generate actionable marketing insights.
+## 📌 Project Overview
+
+This project applies **K-Means Clustering**, an unsupervised machine learning algorithm, to segment mall customers into meaningful groups based on their purchasing behavior. By analyzing **Age**, **Annual Income**, and **Spending Score**, the project identifies customer segments that can support targeted marketing strategies and business decision-making.
+
+The optimal number of clusters was determined using both the **Elbow Method** and **Silhouette Score**. Each cluster was profiled and interpreted to provide actionable marketing recommendations.
 
 ---
 
-# 📌 Project Overview
-
-Customer segmentation helps businesses understand different groups of customers based on similar characteristics and purchasing patterns. By identifying these customer groups, businesses can design personalized marketing campaigns, improve customer engagement, and optimize sales strategies.
-
-This project uses the **Mall Customers Dataset** and the **K-Means Clustering** algorithm to discover hidden customer segments using:
-
-- Age
-- Annual Income
-- Spending Score
-
-The optimal number of clusters was selected using both the **Elbow Method** and the **Silhouette Score**, followed by cluster profiling and marketing recommendations.
-
----
-
-# 🎯 Project Objectives
-
-- Perform Exploratory Data Analysis (EDA)
-- Clean and preprocess customer data
-- Encode categorical features
-- Scale numerical features using StandardScaler
-- Determine the optimal number of clusters
-- Train a K-Means clustering model
-- Evaluate clusters using Elbow Method and Silhouette Score
-- Visualize customer segments
-- Profile customer groups
-- Generate marketing recommendations
-- Save the trained model and scaler for future predictions
-
----
-
-# 📂 Dataset Information
+## 📂 Dataset Information
 
 | Property | Details |
 |-----------|---------|
@@ -60,7 +35,7 @@ The optimal number of clusters was selected using both the **Elbow Method** and 
 
 ---
 
-# ⚙️ Technologies Used
+## ⚙️ Technologies Used
 
 | Technology | Purpose |
 |------------|---------|
@@ -71,96 +46,45 @@ The optimal number of clusters was selected using both the **Elbow Method** and 
 | Seaborn | Statistical visualization |
 | Scikit-learn | Machine Learning |
 | Joblib | Save & Load trained models |
-| Jupyter Notebook | Development Environment |
+
+---
+## 🤖 Machine Learning Pipeline
+
+### K-Means Clustering
+
+**Pipeline:**
+1. Load the **Mall Customers** dataset into a Pandas DataFrame.
+2. Encode the **Gender** column using Label Encoding.
+3. Remove `CustomerID` and `Encoded_Gender`before clustering.
+4. Select the clustering features:- `Age`, `Annual Income (k$)`,`Spending Score (1-100)`
+5. Standardize the selected features using **StandardScaler**.
+6. Determine the optimal number of clusters using **Elbow Method** and **Silhouette Score** (k = 2 to 10)
+7. Train the model using **optimal k = 6**
+8. Profile each cluster using average **Age**, **Annual Income**, **Spending Score**, and **Customer Count**.
+9. Assign meaningful names and define marketing recommendations.
 
 ---
 
-# 🔑 Key Techniques
-
-- Exploratory Data Analysis (EDA)
-- Label Encoding
-- Feature Selection
-- Feature Scaling (StandardScaler)
-- K-Means Clustering
-- Elbow Method
-- Silhouette Score
-- Cluster Profiling
-- Data Visualization
-- Model Persistence using Joblib
-
----
-
-# 🤖 Machine Learning Pipeline
-
-```text
-Load Dataset
-      │
-      ▼
-Exploratory Data Analysis (EDA)
-      │
-      ▼
-Data Cleaning
-      │
-      ▼
-Label Encoding
-      │
-      ▼
-Feature Selection
-      │
-      ▼
-Feature Scaling (StandardScaler)
-      │
-      ▼
-Elbow Method
-      │
-      ▼
-Silhouette Score
-      │
-      ▼
-Optimal K Selection
-      │
-      ▼
-Train K-Means Model
-      │
-      ▼
-Assign Cluster Labels
-      │
-      ▼
-Cluster Profiling
-      │
-      ▼
-Customer Visualization
-      │
-      ▼
-Marketing Recommendations
-      │
-      ▼
-Save Model & Outputs
-```
-
----
-
-# 📈 Choosing the Optimal Number of Clusters
+## 📈 Choosing the Optimal k
 
 The optimal number of clusters was evaluated using both the **Elbow Method** and **Silhouette Score**.
 
 | K | Inertia (WCSS) | Silhouette Score |
 |---|---------------:|-----------------:|
-| 2 | Replace | Replace |
-| 3 | Replace | Replace |
-| 4 | Replace | Replace |
-| 5 | Replace | Replace |
-| **6** | **Replace** | **Replace** ✅ |
-| 7 | Replace | Replace |
-| 8 | Replace | Replace |
-| 9 | Replace | Replace |
-| 10 | Replace | Replace |
+| 2 | 389.386189 | 0.335472 |
+| 3 | 295.212246 | 0.357793 |
+| 4 | 205.225147 | 0.403958 |
+| 5 | 168.247580 | 0.416643 |
+| **6** | **133.868421** | **0.428417** ✅ |
+| 7 | 117.011555 | 0.417232 |
+| 8 | 103.873292 | 0.408207 |
+| 9 | 93.092891  | 0.417693 |
+| 10 | 82.385154 | 0.406554 |
 
-> **Final Model:** K = **6** clusters were selected based on the Elbow Method and Silhouette Score.
-
+**K = 6** clusters were selected based on the Elbow Method and Silhouette Score.
 ---
 
-# 📊 Cluster Summary
+## 📊 Cluster Summary
 
 | Cluster | Segment | Customer Count | Average Age | Average Income | Average Spending |
 |---------|----------------------------|---------------:|------------:|---------------:|-----------------:|
@@ -173,143 +97,40 @@ The optimal number of clusters was evaluated using both the **Elbow Method** and
 
 ---
 
-# 💡 Marketing Recommendations
+## 💡 Marketing Recommendations
 
-### 🟢 High Income High Spenders
-- VIP membership programs
-- Premium product recommendations
-- Exclusive rewards and loyalty programs
+**High Income High Spenders** – VIP membership programs, premium product recommendations, exclusive rewards, and loyalty programs.
 
-### 🔵 High Income Low Spenders
-- Personalized promotions
-- Product bundles
-- Loyalty incentives to increase purchases
+**High Income Low Spenders** – Personalized promotions, product bundles, and loyalty incentives to encourage increased purchases.
 
-### 🟠 Young High Spenders
-- Trend-focused products
-- Student discounts
-- Social media campaigns
+**Young High Spenders** – Trend-focused products, student discounts, influencer collaborations, and social media marketing campaigns.
 
-### 🟣 Young Average Spenders
-- Personalized recommendations
-- Seasonal promotions
-- Customer engagement campaigns
+**Young Average Spenders** – Personalized recommendations, seasonal promotions, and customer engagement campaigns.
 
-### 🟡 Older Average Spenders
-- Repeat purchase incentives
-- Personalized services
-- Family-oriented promotions
+**Older Average Spenders** – Repeat purchase incentives, personalized services, and family-oriented promotions.
 
-### 🔴 Low Income Low Spenders
-- Budget-friendly products
-- Discount campaigns
-- Coupon offers
+**Low Income Low Spenders** – Budget-friendly products, discount campaigns, and coupon offers.
 
 ---
 
-# 📊 Visualizations Included
+## 📁 Project Structure
 
-The notebook includes the following visualizations:
-
-- Age Distribution
-- Annual Income Distribution
-- Spending Score Distribution
-- Gender Distribution
-- Elbow Method
-- Silhouette Score
-- Customer Segmentation Scatter Plot
-- Age vs Spending Score
-- Cluster-wise Boxplots
-- Customer Count by Segment
-
----
-
-# 💾 Project Outputs
-
-| File | Description |
-|------|-------------|
-| Analysis_Model.ipynb | Complete Machine Learning notebook |
-| Mall_Customers.csv | Original dataset |
-| Mall_Customers_Clustered.csv | Dataset with cluster labels |
-| KMeans_Model.pkl | Saved K-Means model |
-| StandardScaler.pkl | Saved StandardScaler |
-| README.md | Project documentation |
-
----
-
-# 📁 Repository Structure
-
-```text
+```
 Customer-Segmentation-KMeans/
 │
-├── Analysis_Model.ipynb
-├── Mall_Customers.csv
-├── Mall_Customers_Clustered.csv
-├── KMeans_Model.pkl
-├── StandardScaler.pkl
-├── requirements.txt
+├── Analysis_Model.ipynb            # note book
+├── Mall_Customers.csv              # reference dataset
+├── Mall_Customers_Clustered.csv    # dataset with cluster labels
+├── KMeans_Model.pkl                # K-Means model
+├── StandardScaler.pkl              # StandardScaler
+├── requirements.txt                # project dependencies
 └── README.md
 ```
 
 ---
 
-# 🚀 Installation
-
-Clone the repository:
-
-```bash
-git clone https://github.com/your-username/Customer-Segmentation-KMeans.git
-cd Customer-Segmentation-KMeans
-```
-
-Install the required libraries:
-
-```bash
-pip install -r requirements.txt
-```
-
-Launch Jupyter Notebook:
-
-```bash
-jupyter notebook
-```
-
----
-
-# 🔮 Predicting New Customers
-
-The trained model and scaler are saved using **Joblib**, allowing new customer data to be classified without retraining the model.
-
-Workflow:
-
-1. Load the saved StandardScaler
-2. Scale the new customer data
-3. Load the saved K-Means model
-4. Predict the customer cluster
-5. Identify the customer segment
-
----
-
-# 📌 Future Improvements
-
-- Experiment with additional customer features
-- Compare K-Means with DBSCAN and Hierarchical Clustering
-- Deploy the model as a web application using Streamlit
-- Build an interactive customer segmentation dashboard
-- Automate customer profile generation
-
----
-
-# 📖 Conclusion
-
-This project successfully demonstrates how **K-Means Clustering** can be applied to identify meaningful customer segments using **Age**, **Annual Income**, and **Spending Score**. The resulting clusters provide valuable business insights that support personalized marketing strategies and data-driven decision-making.
-
-The trained model, scaler, and clustered dataset are saved, allowing new customer data to be segmented without retraining the model.
-
----
-
-# 👩‍💻 Author
+## 👩‍💻 Author
 
 **Amalki Fernando**
-
-🎓 Bachelor of Information Technology (BIT)
+BSc (Hons) in IT Specialising in Artificial Intelligence
+[SLIIT] — [2026]
