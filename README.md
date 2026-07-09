@@ -18,7 +18,7 @@ The optimal number of clusters was determined using both the **Elbow Method** an
 
 | Property | Details |
 |-----------|---------|
-| Dataset | Mall Customers Dataset |
+| Dataset | https://www.kaggle.com/code/mohammadfayiz03/mall-customer-dataset |
 | Records | 200 Customers |
 | Features | 5 |
 | Missing Values | None |
